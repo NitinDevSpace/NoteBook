@@ -1,13 +1,61 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 # NoteBook
+
+NoteBook is a simple and efficient note-taking application that allows users to create, edit, and delete notes with ease. It features modal editing for a smooth user experience and persists notes locally using the browser's local storage.
+
+## Features
+
+- Create, edit, and delete notes
+- Modal-based note editing
+- Notes are saved and loaded from local storage, ensuring persistence across sessions
+
+## Tech Stack
+
+- React
+- Vite
+- Tailwind CSS
+- Local Storage API
+
+## Installation and Usage
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/yourusername/notebook.git
+   cd notebook
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Run the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+4. Open your browser and navigate to `http://localhost:5173` to start using NoteBook.
+
+## Project Structure
+
+- `src/` - Contains the source code for the application
+  - `components/` - Reusable React components
+  - `App.jsx` - Main application component
+  - `index.jsx` - Entry point
+- `public/` - Static assets
+- `tailwind.config.js` - Tailwind CSS configuration
+- `vite.config.js` - Vite configuration
+
+## Future Improvements
+
+- Add user authentication to sync notes across devices
+- Implement tagging and categorization of notes
+- Add search functionality
+- Support markdown formatting
+- Enable cloud backup and synchronization
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
