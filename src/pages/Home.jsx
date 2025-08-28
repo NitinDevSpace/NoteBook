@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import NavBar from "../components/NavBar";
 import Note from "../components/Note";
+import NoteModal from "../components/NoteModal";
 
 function Home() {
 	// State for title input
@@ -8,17 +9,16 @@ function Home() {
 	// State for note content
 	const [note, setNote] = useState("");
 	// State to hold all saved notes
-	const [notes, setNotes] = useState([]);
+	const [notes, setNotes] = useState(() => {
+		return JSON.parse(localStorage.getItem("notes")) || [];
+	});
 	// State to track if textarea is focused (to show title input)
 	const [isFocused, setIsFocused] = useState(false);
 	// Ref to dynamically resize the textarea
 	const textAreaRef = useRef(null);
+	// State for selected note for modal
+	const [selectedNote, setSelectedNote] = useState(null);
 
-	// Load saved notes from localStorage on component mount
-	useEffect(() => {
-		const savedNotes = JSON.parse(localStorage.getItem("notes")) || [];
-		setNotes(savedNotes);
-	}, []);
 
 	// Save notes to localStorage whenever they change
 	useEffect(() => {
@@ -80,9 +80,32 @@ function Home() {
 			{/* Display list of saved notes */}
 			<div className="flex flex-wrap justify-center items-start mt-12 max-w-3/4 mx-auto">
 				{notes.map((n, index) => (
-					<Note key={index} title={n.title} content={n.content} />
+					<div key={index} onClick={() => setSelectedNote({ ...n, index })}>
+						<Note
+							title={n.title}
+							content={n.content}
+							onDelete={() => {
+								const updatedNotes = notes.filter((_, i) => i !== index);
+								setNotes(updatedNotes);
+							}}
+						/>
+					</div>
 				))}
 			</div>
+			{selectedNote && (
+				<NoteModal
+					note={selectedNote}
+					onClose={() => setSelectedNote(null)}
+					onUpdate={(updatedNote) => {
+						const updatedNotes = [...notes];
+						updatedNotes[updatedNote.index] = {
+							title: updatedNote.title,
+							content: updatedNote.content,
+						};
+						setNotes(updatedNotes);
+					}}
+				/>
+			)}
 		</>
 	);
 }
