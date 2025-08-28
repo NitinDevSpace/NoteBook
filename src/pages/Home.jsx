@@ -66,7 +66,7 @@ function Home() {
 						onFocus={() => setIsFocused(true)}
 						placeholder="Take a Note"
 						rows={1}
-						className="border rounded p-2 w-full overflow-hidden focus:outline-none max-h-40 max-w-lg"
+						className="border rounded p-2 w-full overflow-hidden focus:outline-none"
 					/>
 				</div>
 				{/* Button to add note */}
@@ -78,7 +78,7 @@ function Home() {
 				</button>
 			</div>
 			{/* Display list of saved notes */}
-			<div className="flex flex-wrap justify-center items-start mt-12 max-w-3/4 mx-auto">
+			<div className="flex flex-wrap justify-start items-start mt-12 max-w-3/4 mx-auto">
 				{notes.map((n, index) => (
 					<div key={index} onClick={() => setSelectedNote({ ...n, index })}>
 						<Note
