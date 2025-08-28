@@ -42,6 +42,7 @@ NoteBook is a simple and efficient note-taking application that allows users to 
 
 - `src/` - Contains the source code for the application
   - `components/` - Reusable React components
+  - `pages/` - pages
   - `App.jsx` - Main application component
   - `index.jsx` - Entry point
 - `public/` - Static assets
