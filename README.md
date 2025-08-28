@@ -45,7 +45,6 @@ NoteBook is a simple and efficient note-taking application that allows users to 
   - `App.jsx` - Main application component
   - `index.jsx` - Entry point
 - `public/` - Static assets
-- `tailwind.config.js` - Tailwind CSS configuration
 - `vite.config.js` - Vite configuration
 
 ## Future Improvements
